@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question3</title>
+    <style>
+        .form-container{
+            /* max-width: 500px; */
+            padding: 20px 12px 10px 20px;
+            font: 13px Arial, Helvetica, sans-serif;
+        }
+        .form-container-heading{
+            font-weight: bold;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+            /* font-size: 15px; */
+            padding-bottom: 3px;
+        }
+        /* .logo-div {
+            text-align: center;
+        } */
+        .form-container label{
+            display: block;
+            margin: 0px 0px 15px 0px;
+        }
+        .form-container label > span{
+            width: 100px;
+            font-weight: bold;
+            float: left;
+            padding-top: 8px;
+            padding-right: 5px;
+        }
+        .form-container span.required{
+            color:red;
+        }
+        .form-container .tel-number-field{
+            width: 40px;
+            text-align: center;
+        }
+        .form-container input.input-field, .form-container .select-field{
+            width: 48%;	
+        }
+        .form-container input.input-field, 
+        .form-container .tel-number-field, 
+        .form-container .textarea-field, 
+        .form-container .select-field{
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            border: 1px solid #C2C2C2;
+            box-shadow: 1px 1px 4px #EBEBEB;
+            -moz-box-shadow: 1px 1px 4px #EBEBEB;
+            -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            padding: 7px;
+            outline: none;
+        }
+        .form-container .input-field:focus,   
+        .form-container .select-field:focus{
+            border: 1px solid #0C0;
+        }
+        
+        .form-container input[type=submit],
+        .form-container input[type=button]{
+            border: none;
+            padding: 8px 15px 8px 15px;
+            background: #FF8500;
+            color: #fff;
+            box-shadow: 1px 1px 4px #DADADA;
+            -moz-box-shadow: 1px 1px 4px #DADADA;
+            -webkit-box-shadow: 1px 1px 4px #DADADA;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+        }
+        .form-container input[type=submit]:hover,
+        .form-container input[type=button]:hover{
+            background: #EA7B00;
+            color: #fff;
+        }
+</style>
+    
+</head>
+<body>
+    <div style="display: flex;">
+        <a href="question1.html">question1</a>
+        <a href="question2.html">question2</a>
+        <a href="question3.html">question3</a>
+    </div>
+
+    <div class="form-container">
+        <h1 class="form-container-heading">Welcome To Pretoria Sunnyside Bowling Club</h1>
+
+    <div>
+        <h1>Signup Form</h1>
+        <div class="logo-div">
+            <img class="logo" src="./imgs/q3.jfif" alt="">
+        </div>
+        
+        <form action="" method="post" id="form">
+            <div>
+                <label for="firstname"><span>First Name<span class="required">*</span></span>
+                <input type="text" name="firstname" class="input-field" id="" placeholder="First Name" maxlength="30" required></label>
+            </div>
+           
+            <div>
+                <label for="lastname"><span>Last Name<span class="required">*</span></span>
+                <input type="text" name="lastname" class="input-field" id="" placeholder="Last Name" maxlength="30" required></label>
+            </div>
+            <div>
+                <label for="address"><span>Address<span class="required">*</span></span>
+                <input type="text" name="address" class="input-field" id="" placeholder="Address" maxlength="30" required></label>
+            </div>
+            <div>
+                <label for="gender"><span>Gender<span class="required">*</span></span>
+                <input type="radio" name="gender" id="">Male
+                <input type="radio" name="gender" id="">Female </label>
+            </div>
+            <div>
+                <label for="email"><span>Email Id<span class="required">*</span></span>
+                <input type="email" name="email" class="input-field" id="" placeholder="example@gmail.com" required
+                pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$"></label>
+            </div>
+            <div>
+                <label for="phone"><span>Mobile<span class="required">*</span></span>
+                <input type="tel" name="phone" class="input-field" id="" required></label>
+            </div>
+            <div>
+                <label for="location"><span>Location<span class="required">*</span></span>
+                <select name="location" class="select-field" id="">
+                    <option value="boardwalk">Boardwalk</option>
+                    <option value="brooklyn">Brooklyn</option>
+                    <option value="lynnwood">Lynnwood</option>
+                    <option value="sunnyside">Sunnyside</option>
+                </select></label>
+                
+            </div>
+            <div class="buttons">
+                <input type="submit" id="signup" value="signup">
+                <input type="button" id="reset" value="Reset">
+            </div>
+            
+        </form>
+    </div>
+    </div>
+    
+    <script>
+        const signupBtn = document.getElementById('signup');
+        const restBtn = document.getElementById('reset');
+
+        var form = document.getElementById('form');
+        var gender = document.getElementsByName(gender);
+        var name = form.elements.firstname.value;
+        var lastname = form.elements.lastname.value;
+        var address = form.elements.address.value;
+        var email = form.elements.email.value;
+        var phone = form.elements.phone.value;
+        // const location = form.elements.location.value;
+
+
+        signupBtn.addEventListener('click', () => {
+            // alert("cc")
+            
+            if (name.length < 1 && name === undefined && email < 1
+                && email === undefined && email !== email.toLowerCase()
+                && lastname.length < 5 && lastname === undefined) {
+                    event.preventDefault();
+                alert('* Make sure you fill all the input fields. form not sent.');
+                }
+            });
+
+            restBtn.addEventListener('click', () => {
+                name.value = "";
+                lastname.value = "";
+                address.value = "";
+                email.value = "";
+                phone.value = "";
+                gender.value = "";
+                // name.value = ""
+                // name.value = ""
+            })
+    </script>
+</body>
+</html>

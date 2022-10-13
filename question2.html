@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question2</title>
+</head>
+<body>
+    <div style="display: flex;">
+        <a href="question1.html">question1</a>
+        <a href="question2.html">question2</a>
+        <a href="question3.html">question3</a>
+    </div>
+    <h1>Question 2</h1>
+
+    <form action="">
+        <label for="date">When was this website updated? :</label>
+        <input type="date" name="date" id="date"  data-date-format="YYYY MM DD">
+        <input type="button" id="getDate" value="Send Update Date">
+    </form>
+    <script>
+        let now = new Date();
+
+        let day = ("0" + now.getDate()).slice(-2)
+        let month = ("0" + (now.getMonth() + 1)).slice(-2);
+        let today = (day)+"-"+(month)+"-"+now.getFullYear();
+
+       const date = document.getElementById("date");
+       date.val(today)
+        document.getElementById("getDate").click(function(){
+            alert(date.val())
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question1</title>
+</head>
+<body>
+    <div style="display: flex;">
+        <a href="question1.html">question1</a>
+        <a href="question2.html">question2</a>
+        <a href="question3.html">question3</a>
+    </div>
+    <h1>Question 1</h1>
+
+    <p id="demo"></p>
+    <table border="1"></table>
+    <p id="q2"></p>
+    <p id="q3"></p>
+    <script>
+        const cars = ["BMW M4","Nissan Versa","Honda Civic","Hyundai Elantra Hybrid","Nissan Magnite","Hyundai Alcazar"];
+        let question1,question2,question3;
+
+        for(let i=0; i < cars.length; i++) {
+            // alert(cars[i]);
+            question1 += cars[i]
+            document.write("<tr><td>");
+        }
+        
+
+        cars.pop();
+        document.getElementById("q2").innerHTML = cars;
+
+        cars.unshift("Mercedes Benz S-Class")
+        document.getElementById("q3").innerHTML = cars;
+
+    </script>
+</body>
+</html>
