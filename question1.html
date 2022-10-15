@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question1</title>
+    <style>
+        table { width: auto; }
+        table, th, td { border: solid 1px #DDD;
+            border-collapse: collapse; padding: 2px 3px; text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div style="display: flex;">
@@ -13,7 +19,7 @@
         <a href="question3.html">question3</a>
     </div>
     <h1>Question 1</h1>
-</table>
+<!-- </table> -->
     <script>
         // const cars = ["BMW M4","Nissan Versa","Honda Civic","Hyundai Elantra Hybrid","Nissan Magnite","Hyundai Alcazar"];
         // let question1,question2,question3;
@@ -63,8 +69,9 @@
 
          // Question 1.2
          cars.pop();
-
+    
          for(var i = 0; i < cars.length; i++){
+            
             tr = document.createElement('tr');
             //for ArrayNum
             td = document.createElement('td');
