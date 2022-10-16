@@ -10,6 +10,12 @@
         table, th, td { border: solid 1px #DDD;
             border-collapse: collapse; padding: 2px 3px; text-align: center;
         }
+        .background {
+            background-color: darkgray;
+        }
+        .backgroundq2 {
+            background-color: fuchsia;
+        }
     </style>
 </head>
 <body>
@@ -19,7 +25,11 @@
         <a href="question3.html">question3</a>
     </div>
     <h1>Question 1</h1>
-<!-- </table> -->
+    <table id="question1">
+
+    </table>
+   <input type="button" id="pop" onclick="deleteValue()" value="Delete Last Value">
+   <input type="button" id="add" onclick="addValue()" value="Add Mercedes">
     <script>
         // const cars = ["BMW M4","Nissan Versa","Honda Civic","Hyundai Elantra Hybrid","Nissan Magnite","Hyundai Alcazar"];
         // let question1,question2,question3;
@@ -38,7 +48,9 @@
         
         // Question 1.1
         var cars = ["BMW M4","Nissan Versa","Honda Civic","Hyundai Elantra Hybrid","Nissan Magnite","Hyundai Alcazar"]
-        var table = document.createElement('table'),
+        var pop = document.getElementById('pop');
+        var add = document.getElementById('add');
+        var table = document.getElementById('question1'),
             thead = document.createElement('thead'),
             tbody = document.createElement('tbody'), th, tr, td;
 
@@ -54,6 +66,7 @@
             document.body.appendChild(table);
 
          for(var i = 0; i < cars.length; i++){
+            // var table2=document.getElementById('question2')
             tr = document.createElement('tr');
             //for ArrayNum
             td = document.createElement('td');
@@ -68,11 +81,13 @@
          }
 
          // Question 1.2
-         cars.pop();
-    
-         for(var i = 0; i < cars.length; i++){
+        function deleteValue() {
+            cars.pop();
             
+            for(var i = 0; i < cars.length; i++){
+            var table2=document.getElementById('question2')
             tr = document.createElement('tr');
+            tr.classList.add("backgroundq2")
             //for ArrayNum
             td = document.createElement('td');
             td.innerHTML="Array ["+i+"]";
@@ -84,12 +99,16 @@
             tr.appendChild(td);
             tbody.appendChild(tr);
          }
+        }
+         
+    
+        function addValue() {
+            // Question 1.3 
+            cars.unshift("Mercedes Benz S-Class")
 
-         // Question 1.3 
-         cars.unshift("Mercedes Benz S-Class")
-
-         for(var i = 0; i < cars.length; i++){
+            for(var i = 0; i < cars.length; i++){
             tr = document.createElement('tr');
+            tr.classList.add("background");
             //for ArrayNum
             td = document.createElement('td');
             td.innerHTML="Array ["+i+"]";
@@ -100,7 +119,10 @@
             td.innerHTML=cars[i];
             tr.appendChild(td);
             tbody.appendChild(tr);
-         }
+            }
+        }
+
+        
     </script>
 </body>
 </html>

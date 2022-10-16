@@ -15,9 +15,12 @@
     <h1>Question 2</h1>
 
     <form action="">
-        <label for="date">When was this website updated? :</label>
-        <input type="date" name="date" id="date"  data-date-format="YYYY MM DD">
-        <input type="button" id="getDate" value="Send Update Date">
+        <fieldset>
+            <legend>Update date:</legend>
+                <label for="date">When was this website updated? :</label>
+                <input type="date" name="date" id="date"  data-date-format="YYYY MM DD">
+                <input type="submit" id="getDate" value="Send Update Date">
+        </fieldset>
     </form>
     <script>
         let now = new Date();
