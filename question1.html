@@ -31,21 +31,7 @@
    <input type="button" id="pop" onclick="deleteValue()" value="Delete Last Value">
    <input type="button" id="add" onclick="addValue()" value="Add Mercedes">
     <script>
-        // const cars = ["BMW M4","Nissan Versa","Honda Civic","Hyundai Elantra Hybrid","Nissan Magnite","Hyundai Alcazar"];
-        // let question1,question2,question3;
 
-        // for(let i=0; i < cars.length; i++) {
-        //     // alert(cars[i]);
-        //     question1 += cars[i]
-        //     document.write("<tr><tr>");
-        // }
-        
-        // cars.pop();
-        // document.getElementById("q2").innerHTML = cars;
-
-        // cars.unshift("Mercedes Benz S-Class")
-        // document.getElementById("q3").innerHTML = cars;
-        
         // Question 1.1
         var cars = ["BMW M4","Nissan Versa","Honda Civic","Hyundai Elantra Hybrid","Nissan Magnite","Hyundai Alcazar"]
         var pop = document.getElementById('pop');
@@ -66,7 +52,6 @@
             document.body.appendChild(table);
 
          for(var i = 0; i < cars.length; i++){
-            // var table2=document.getElementById('question2')
             tr = document.createElement('tr');
             //for ArrayNum
             td = document.createElement('td');
@@ -85,7 +70,6 @@
             cars.pop();
             
             for(var i = 0; i < cars.length; i++){
-            var table2=document.getElementById('question2')
             tr = document.createElement('tr');
             tr.classList.add("backgroundq2")
             //for ArrayNum
@@ -101,7 +85,6 @@
          }
         }
          
-    
         function addValue() {
             // Question 1.3 
             cars.unshift("Mercedes Benz S-Class")
@@ -122,7 +105,6 @@
             }
         }
 
-        
     </script>
 </body>
 </html>
