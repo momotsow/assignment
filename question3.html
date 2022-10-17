@@ -7,7 +7,7 @@
     <title>Question3</title>
     <style>
         .form-container{
-            /* max-width: 500px; */
+            max-width: 600px;
             padding: 20px 12px 10px 20px;
             font: 13px Arial, Helvetica, sans-serif;
         }
@@ -15,12 +15,15 @@
             font-weight: bold;
             border-bottom: 2px solid #ddd;
             margin-bottom: 20px;
-            /* font-size: 15px; */
             padding-bottom: 3px;
         }
-        /* .logo-div {
+        .form-box {
+            border: 1px solid black;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             text-align: center;
-        } */
+            padding-bottom: 10px;
+        }
+        
         .form-container label{
             display: block;
             margin: 0px 0px 15px 0px;
@@ -86,7 +89,7 @@
     
 </head>
 <body>
-    <div style="display: flex;">
+    <div style="display: flex; justify-content: space-between;">
         <a href="question1.html">question1</a>
         <a href="question2.html">question2</a>
         <a href="question3.html">question3</a>
@@ -95,7 +98,7 @@
     <div class="form-container">
         <h1 class="form-container-heading">Welcome To Pretoria Sunnyside Bowling Club</h1>
 
-    <div>
+    <div class="form-box">
         <h1>Signup Form</h1>
         <div class="logo-div">
             <img class="logo" src="./imgs/q3.jfif" alt="">
@@ -117,8 +120,8 @@
             </div>
             <div>
                 <label for="gender"><span>Gender<span class="required">*</span></span>
-                <input type="radio" name="gender" id="">Male
-                <input type="radio" name="gender" id="">Female </label>
+                <input type="radio" name="gender" id="male">Male
+                <input type="radio" name="gender" id="female">Female </label>
             </div>
             <div>
                 <label for="email"><span>Email Id<span class="required">*</span></span>
@@ -127,11 +130,12 @@
             </div>
             <div>
                 <label for="phone"><span>Mobile<span class="required">*</span></span>
-                <input type="tel" name="phone" class="input-field" id=""></label>
+                <input type="tel" name="phone" class="input-field" id="" pattern="/^\d{9,15}$/" maxlength="10"></label>
             </div>
             <div>
                 <label for="location"><span>Location<span class="required">*</span></span>
-                <select name="location" class="select-field" id="">
+                <select name="location" class="select-field" id="location">
+                    <option value="">Select</option>
                     <option value="boardwalk">Boardwalk</option>
                     <option value="brooklyn">Brooklyn</option>
                     <option value="lynnwood">Lynnwood</option>
@@ -140,7 +144,7 @@
                 
             </div>
             <div class="buttons">
-                <input type="submit" id="signup" value="signup">
+                <input type="submit" id="signup" onclick="cookieFunction()" value="signup">
                 <input type="button" id="reset" value="Reset">
             </div>
             
@@ -153,24 +157,46 @@
         const restBtn = document.getElementById('reset');
 
         var form = document.getElementById('form');
-        var gender = document.getElementsByName('gender');
+        var male = document.getElementById('male');
+        var female = document.getElementById('female');
         var name = form.elements.firstname.value;
+        var nameregex= name.search(/[a-zA-Z]/g);
         var lastname = form.elements.lastname.value;
         var address = form.elements.address.value;
         var email = form.elements.email.value;
         var phone = form.elements.phone.value;
-        // const location = form.elements.location.value;
+        var phoneregex= /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+        var location = document.getElementById('location');
 
+        var today= new Date();
+        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000)
 
-        signupBtn.addEventListener('click', () => {
-            // alert("cc")
+        signupBtn.addEventListener('click', (event) => {
             if (name.length < 1 || name === undefined || email < 1
                 || email === undefined || email !== email.toLowerCase()
                 || lastname.length < 5 || lastname === undefined || phone === undefined) {
                     event.preventDefault();
-                    alert('* Make sure you fill all the input fields. form not sent.');
+                    alert('* Fields are required');
                     return false;
-            }
+            }else if (nameregex == -1 || name === "") {
+                event.preventDefault();
+                    alert('* Name is required');
+                    return false;
+            }else if (phoneregex == -1 || phone === "") {
+                event.preventDefault();
+                    alert('* Phone is required');
+                    return false;
+            }else if (!document.getElementById('male').Checked && !document.getElementById('female').Checked) {
+                    event.preventDefault();
+                    alert('* Gender is required');
+                    return false;
+                }else if (document.getElementById('location').value == "") {
+                    event.preventDefault();
+                    alert('* Location is required');
+                    return false;
+                }else {
+                    Alert("Success")
+                }
         });
 
         restBtn.addEventListener('click', () => {
@@ -179,7 +205,9 @@
             address.value = "";
             email.value = "";
             phone.value = "";
-            gender.value = "";
+            male.Checked = false;
+            female.Checked = false;
+            location.value= "";
         })
 
         //q3.2
@@ -200,10 +228,16 @@
                 address.value = "";
                 email.value = "";
                 phone.value = "";
-                gender.value = "";
+                male.Checked = false;
+                female.Checked = false;
+                location.value= "";
             }
         })
-
+        
+        // q3.3
+        function cookieFunction() {
+            
+        }
     </script>
 </body>
 </html>

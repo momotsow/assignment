@@ -5,9 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question2</title>
+    <style>
+        fieldset {
+            width: 50%;
+        }
+        .button {
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
-    <div style="display: flex;">
+    <div style="display: flex; justify-content: space-between;">
         <a href="question1.html">question1</a>
         <a href="question2.html">question2</a>
         <a href="question3.html">question3</a>
@@ -17,9 +26,14 @@
     <p>Question 2.1</p>
 
     <form action="">
-        <label for="date">When was this website updated? :</label>
-        <input type="date" name="date" id="date">
-        <input type="button" id="getDate" value="Send Update Date">
+        <fieldset>
+            <legend>Update Date</legend>
+            <label for="date">When was this website updated? :</label>
+            <input type="date" name="date" id="date">
+            <div class="button" >
+                <input type="button" id="getDate" value="Send Update Date">
+            </div>
+        </fieldset>
     </form>
 
     <p>Question 2.2</p>
@@ -64,7 +78,7 @@
 
             
             updateBtn.addEventListener("click", function(){
-                alert(dateFormat(newDate, 'MM/dd/yy'));
+                alert("This page was last last updated: "+ dateFormat(newDate, 'dd/MM/yy'));
             })
         });
 
