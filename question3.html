@@ -101,19 +101,19 @@
             <img class="logo" src="./imgs/q3.jfif" alt="">
         </div>
         
-        <form action="" method="post" id="form" name="form">
+        <form action="" method="post" id="form">
             <div>
                 <label for="firstname"><span>First Name<span class="required">*</span></span>
-                <input type="text" name="firstname" class="input-field" id="" placeholder="First Name" maxlength="30" required></label>
+                <input type="text" name="firstname" class="input-field" id="" placeholder="First Name" maxlength="30"></label>
             </div>
            
             <div>
                 <label for="lastname"><span>Last Name<span class="required">*</span></span>
-                <input type="text" name="lastname" class="input-field" id="" placeholder="Last Name" maxlength="30" required></label>
+                <input type="text" name="lastname" class="input-field" id="" placeholder="Last Name" maxlength="30"></label>
             </div>
             <div>
                 <label for="address"><span>Address<span class="required">*</span></span>
-                <input type="text" name="address" class="input-field" id="" placeholder="Address" maxlength="30" required></label>
+                <input type="text" name="address" class="input-field" id="" placeholder="Address" maxlength="30"></label>
             </div>
             <div>
                 <label for="gender"><span>Gender<span class="required">*</span></span>
@@ -122,12 +122,12 @@
             </div>
             <div>
                 <label for="email"><span>Email Id<span class="required">*</span></span>
-                <input type="email" name="email" class="input-field" id="" placeholder="example@gmail.com" required
+                <input type="email" name="email" class="input-field" id="" placeholder="example@gmail.com"
                 pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$"></label>
             </div>
             <div>
                 <label for="phone"><span>Mobile<span class="required">*</span></span>
-                <input type="tel" name="phone" class="input-field" id="" required></label>
+                <input type="tel" name="phone" class="input-field" id=""></label>
             </div>
             <div>
                 <label for="location"><span>Location<span class="required">*</span></span>
@@ -140,8 +140,8 @@
                 
             </div>
             <div class="buttons">
-                <input type="submit" id="signupbtn" value="signup">
-                <input type="button" id="resetbtn" value="Reset">
+                <input type="submit" id="signup" value="signup">
+                <input type="button" id="reset" value="Reset">
             </div>
             
         </form>
@@ -149,8 +149,8 @@
     </div>
     
     <script>
-        var signupBtn = document.getElementById('signupbtn');
-        var restBtn = document.getElementById('resetbtn');
+        const signupBtn = document.getElementById('signup');
+        const restBtn = document.getElementById('reset');
 
         var form = document.getElementById('form');
         var gender = document.getElementsByName('gender');
@@ -164,17 +164,44 @@
 
         signupBtn.addEventListener('click', () => {
             // alert("cc")
-            
-            if (name.length < 1 && name === undefined && email < 1
-                && email === undefined && email !== email.toLowerCase()
-                && lastname.length < 5 && lastname === undefined) {
+            if (name.length < 1 || name === undefined || email < 1
+                || email === undefined || email !== email.toLowerCase()
+                || lastname.length < 5 || lastname === undefined || phone === undefined) {
                     event.preventDefault();
-                alert('* Make sure you fill all the input fields. form not sent.');
-                }
-            });
+                    alert('* Make sure you fill all the input fields. form not sent.');
+                    return false;
+            }
+        });
 
         restBtn.addEventListener('click', () => {
-            document.getElementById("form").reset();
+            name = "";
+            lastname = "";
+            address.value = "";
+            email.value = "";
+            phone.value = "";
+            gender.value = "";
+        })
+
+        //q3.2
+        signupBtn.addEventListener('click', () => {
+            try {
+                if(name.length < 1 || name === undefined || email < 1
+                || email === undefined || email !== email.toLowerCase()
+                || lastname.length < 5 || lastname === undefined || phone === undefined) {
+                    throw "* Make sure you fill all the input fields. form not sent.";
+                }
+            }
+            catch(err) {
+                alert("Error: " + err + ".");
+            }
+            finally {
+                name.value = "";
+                lastname.value = "";
+                address.value = "";
+                email.value = "";
+                phone.value = "";
+                gender.value = "";
+            }
         })
 
     </script>
